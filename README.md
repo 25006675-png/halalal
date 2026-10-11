@@ -9,6 +9,19 @@ assemble an application pack. The owner approves every message and document befo
 HalalReady never says a product is halal or not halal. It reports what is documented and what is missing.
 All sample data is fictional.
 
+## Halal in practice, not on paper
+
+Only **4.8%** of Malaysia's halal companies hold a JAKIM halal certificate: 9,520 out of about 200,000.
+
+| | |
+|---|---|
+| **95.2%** | without a certificate |
+| **4.8%** | with a certificate |
+
+`DIGANTUNG / SUSPENDED` · `DITARIK BALIK / REVOKED`
+
+Source: [Utusan Malaysia, Nov 2024](https://www.utusan.com.my/berita/2024/11/57-peratus-pemegang-sijil-halal-babit-syarikat-bukan-bumiputera/)
+
 Built for the AI Hackerdorm Dormathon 2026, Track 2 (Tencent WorkBuddy).
 
 ## How it fits together
@@ -21,8 +34,8 @@ Built for the AI Hackerdorm Dormathon 2026, Track 2 (Tencent WorkBuddy).
  Supplier Chaser       ├─────────► │  connector/  ├────────► │ backend/ │ ◄────► │ dashboard │
  Document Writer       │  (stdio   │  server.py   │          │ FastAPI  │  SSE   │  (browser)│
  On-site Inspector     │  or HTTP) │  16 tools    │          │ + SQLite │        └───────────┘
- Renewal Watch         │           └──────────────┘          └────┬─────┘
- Auditor               ┘                                          │ WhatsApp / Telegram
+ Renewal Watch         ┘           └──────────────┘          └────┬─────┘
+                                                                  │ WhatsApp / Telegram
                                                                   ▼
                                                               Suppliers
 ```
@@ -106,7 +119,6 @@ PASS: handoff visible in events
 | Document Writer | Drafts the internal halal documents (halal policy and others) from the business's real details |
 | On-site Inspector | Pre-audit self-check of the store, processing, packing, cleaning and waste zones from photos |
 | Renewal Watch | Wakes up when a supplier certificate is about to expire and asks the Supplier Chaser to chase it |
-| Auditor | Checks every document against the requirement checklist and sends weak work back to the Writer |
 
 Each role's instructions are in `agents/prompts/`. Shared rules are in `agents/prompts/_shared.md`.
 The rule files are in `rules/`: recognised certifiers and the required sections of each document.
