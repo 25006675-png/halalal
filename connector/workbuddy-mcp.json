@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "halalready": {
+      "command": "C:/Documents/halalal/.venv/Scripts/python.exe",
+      "args": ["C:/Documents/halalal/connector/server.py"],
+      "env": {
+        "BACKEND_URL": "http://localhost:8002",
+        "CONNECTOR_TOKEN": ""
+      }
+    }
+  }
+}
